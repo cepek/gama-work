@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -e
+
+RESULTS=@abs_top_builddir@/tests/gama-local-deformation
+RESULTS=$RESULTS/results/@PACKAGE_VERSION@/diff
+mkdir -p $RESULTS
+
+GAMALDEF=@abs_top_builddir@/src/gama-local-deformation
+
+echo Package version @PACKAGE_VERSION@
+echo -n "gama-local-deformation version "
+$GAMALDEF --version
+echo
+
+INPUTDIR=@abs_top_srcdir@/tests/gama-local-deformation/input/diff
+DATA1=$INPUTDIR/data-1.xml
+DATA2=$INPUTDIR/data-2.xml
+
+#if 0; then
+echo                                         > /tmp/DEFOINFO.txt
+echo "abs_top_srcdir   " @abs_top_srcdir@   >> /tmp/DEFOINFO.txt
+echo "abs_top_builddir " @abs_top_builddir@ >> /tmp/DEFOINFO.txt
+echo "Input dir        " $INPUTDIR          >> /tmp/DEFOINFO.txt
+echo "DATA1            " $DATA1             >> /tmp/DEFOINFO.txt
+echo "DATA2            " $DATA2             >> /tmp/DEFOINFO.txt
+echo                                        >> /tmp/DEFOINFO.txt
+echo "Results dir      " $RESULTS           >> /tmp/DEFOINFO.txt
+echo "Pack Version     " @PACKAGE_VERSION@  >> /tmp/DEFOINFO.txt
+#fi
+
+$GAMALDEF $DATA1 $DATA2 --text $RESULTS/data-1-2.txt --svg $RESULTS/data-1-2.svg
+diff  $INPUTDIR/data-1-2.txt   $RESULTS/data-1-2.txt
+diff  $INPUTDIR/data-1-2.svg   $RESULTS/data-1-2.svg
