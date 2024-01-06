@@ -9,6 +9,7 @@ add_definitions(-DGNU_gama_expat_1_1)
 #add_definitions(-DDEBUG_ACORD2)
 #add_definitions(-DA2G_DEBUG)
 #add_definitions(-DDEBUG_REDUCED_OBS)
+#add_definitions(-DDEBUG_GAMA_LOCAL_DEFORMATION)
 
 # Add -O0 to remove optimizations when using gcc
 #if(CMAKE_COMPILER_IS_GNUCC)
@@ -102,6 +103,8 @@ set(SRC_GAMA
    lib/gnu_gama/local/angobs.h
    lib/gnu_gama/local/bearing.cpp
    lib/gnu_gama/local/bearing.h
+   lib/gnu_gama/local/deformation.cpp
+   lib/gnu_gama/local/deformation.h
    lib/gnu_gama/local/html.cpp
    lib/gnu_gama/local/html.h
    lib/gnu_gama/local/cluster.h

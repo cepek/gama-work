@@ -80,6 +80,8 @@ libgama_src = \
    gnu_gama/local/angobs.h \
    gnu_gama/local/bearing.cpp \
    gnu_gama/local/bearing.h \
+   gnu_gama/local/deformation.cpp \
+   gnu_gama/local/deformation.h \
    gnu_gama/local/html.cpp \
    gnu_gama/local/html.h \
    gnu_gama/local/cluster.h \
